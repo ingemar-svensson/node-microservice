@@ -1,0 +1,1 @@
+A vanilla Node microservice using gRPC for internal messaging over Kafka

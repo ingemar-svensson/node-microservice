@@ -1,0 +1,29 @@
+{
+  "name": "node-microservice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "generate:proto": "protoc --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts_proto --ts_out=src/grpc/types --ts_opt=outputServices=grpc-js,useOptionals=messages -I ./src/grpc/protos ./src/grpc/protos/*.proto",
+    "start": "npm run build && node dist/index.js",
+    "dev": "ts-node-dev --respawn src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.5",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "ts-proto": "^2.2.4",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.12.2",
+    "@grpc/proto-loader": "^0.7.13",
+    "express": "^4.21.1",
+    "kafkajs": "^2.2.4"
+  }
+}
